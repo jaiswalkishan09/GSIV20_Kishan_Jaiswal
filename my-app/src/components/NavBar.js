@@ -2,10 +2,10 @@ import React from "react";
 import home from "../images/home.svg";
 export default function NavBar() {
   return (
-    <div>
-      <div className="container-fluid" style={{ margin: "6px" }}>
+    <div style={{ marginTop: "20px" }}>
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-6 ">
+          <div className="col-6" style={{ paddingLeft: "0px" }}>
             <div
               className="input-group"
               style={{ backgroundColor: "#DFDFDF", borderRadius: "10px" }}

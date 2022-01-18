@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
+import ListCard from "./ListCard";
 function ListPage(props) {
   const [data, setdata] = useState();
   useEffect(async () => {
@@ -24,15 +25,20 @@ function ListPage(props) {
   }, []);
   return (
     <div>
-      <div>
-        <NavBar />
-      </div>
-      <div>
-        {data
-          ? data.results.map((data, index) => {
-              console.log(data);
-            })
-          : "Please wait"}
+      <div className="container-fluid">
+        <div>
+          <NavBar />
+          <hr style={{ borderBottom: "3px solid", borderColor: "#9F9F9F" }} />
+        </div>
+        <div className="d-flex justify-content-center  flex-wrap">
+          {data
+            ? data.results.map((data, index) => (
+                <div className="p-1">
+                  <ListCard />
+                </div>
+              ))
+            : "Please wait"}
+        </div>
       </div>
     </div>
   );
