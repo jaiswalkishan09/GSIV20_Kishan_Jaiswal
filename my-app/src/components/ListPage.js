@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import ListCard from "./ListCard";
+import { useSelector, useDispatch } from "react-redux";
+import { addList } from "../action/index";
+import addReducer from "../reducer/addReducer";
 function ListPage(props) {
+  const mystate = useSelector((state) => state.addReducer);
+  const dispatch = useDispatch();
   const [data, setdata] = useState();
+  const [page, setPage] = useState(1);
   useEffect(async () => {
     try {
       const response = await fetch(
@@ -17,10 +23,10 @@ function ListPage(props) {
 
       let json_res = await response.json();
       if (json_res) {
-        setdata(json_res);
+        dispatch(addList(json_res));
       }
-    } catch {
-      console.log("eroor");
+    } catch (err) {
+      console.log(err);
     }
   }, []);
   return (
@@ -30,15 +36,7 @@ function ListPage(props) {
           <NavBar />
           <hr style={{ borderBottom: "3px solid", borderColor: "#9F9F9F" }} />
         </div>
-        <div className="d-flex justify-content-center  flex-wrap">
-          {data
-            ? data.results.map((data, index) => (
-                <div className="p-1">
-                  <ListCard />
-                </div>
-              ))
-            : "Please wait"}
-        </div>
+        <ListCard />
       </div>
     </div>
   );
