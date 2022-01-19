@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function ListCard() {
   const mystate = useSelector((state) => state.addReducer);
+  function changeBackground(e) {}
   return (
     <>
       <div className="d-flex justify-content-center  flex-wrap">
@@ -10,7 +11,8 @@ export default function ListCard() {
           ? mystate.data.results.map((data, index) => (
               <div
                 key={index}
-                className="Card shadow-lg  mb-5 bg-white rounded p-1"
+                className="Card shadow-lg  mb-5 bg-white rounded p-1 "
+                style={{ cursor: "pointer" }}
               >
                 <img
                   className="card-img-top"
@@ -40,7 +42,7 @@ export default function ListCard() {
                   >
                     {data.overview}
                   </h6>
-                  <i class="bi bi-three-dots"></i>
+                  <i className="bi bi-three-dots"></i>
                 </div>
               </div>
             ))

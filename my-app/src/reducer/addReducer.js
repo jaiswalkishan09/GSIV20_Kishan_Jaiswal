@@ -7,7 +7,7 @@ const addReducer = (state = initialData, action) => {
         data: action.data,
       };
     default:
-      return initialData;
+      return state;
   }
 };
 export default addReducer;

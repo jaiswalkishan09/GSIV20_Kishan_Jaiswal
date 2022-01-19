@@ -4,3 +4,15 @@ export const addList = (data) => {
     data: data,
   };
 };
+
+export const pageIncrement = () => {
+  return {
+    type: "INCREMENT",
+  };
+};
+
+export const pageDecrement = () => {
+  return {
+    type: "DECREMENT",
+  };
+};
