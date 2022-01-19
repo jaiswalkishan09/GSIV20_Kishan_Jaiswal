@@ -8,6 +8,7 @@ export default function MovieDetail() {
   const movieId = useSelector((state) => state.idReducer);
   const movieData = useSelector((state) => state.movieDetailReducer);
   const creditData = useSelector((state) => state.movieCreditReducer);
+  const show = useSelector((state) => state.showReducer);
   const dispatch = useDispatch();
   useEffect(async () => {
     try {

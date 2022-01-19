@@ -6,6 +6,7 @@ import movieCreditReducer from "./movieCreditReducer";
 import showReducer from "./showReducer";
 import searchPageReducer from "./searchPageReducer";
 import { combineReducers } from "redux";
+import inputReducer from "./inputReducer";
 
 const rootReducer = combineReducers({
   addReducer,
@@ -15,5 +16,6 @@ const rootReducer = combineReducers({
   movieCreditReducer,
   showReducer,
   searchPageReducer,
+  inputReducer,
 });
 export default rootReducer;

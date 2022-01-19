@@ -73,3 +73,10 @@ export const searchPageDecrement = () => {
     type: "SEARCH_DECREMENT",
   };
 };
+
+export const setInput = (data) => {
+  return {
+    type: "SET_INPUT",
+    data: data,
+  };
+};

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import home from "../images/home.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { addList, searchPageIncrement, searchPageInitial } from "../action";
-import { notShowNext, pageInitial, showNext } from "../action";
+import { notShowNext, pageInitial, showNext, setInput } from "../action";
 export default function NavBar() {
-  const [input, setInput] = useState("");
+  const input = useSelector((state) => state.inputReducer);
+
+  console.log("d", input);
   const dispatch = useDispatch();
   const searchPageNo = useSelector((state) => state.searchPageReducer);
 
@@ -62,15 +64,13 @@ export default function NavBar() {
                 className="form-control py-2"
                 type="search"
                 placeholder="Search"
+                value={input}
                 onChange={(e) => {
-                  setInput(e.target.value);
+                  dispatch(setInput(e.target.value));
                   if (input == "") {
                     dispatch(searchPageInitial(0));
                   } else dispatch(searchPageInitial(1));
                 }}
-                // onBlur={() => {
-                //   dispatch(searchPageIncrement);
-                // }}
                 style={{
                   border: "none",
                   backgroundColor: "#DFDFDF",
