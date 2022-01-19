@@ -4,7 +4,12 @@ export const addList = (data) => {
     data: data,
   };
 };
-
+export const pageInitial = (data) => {
+  return {
+    type: "PAGE_SET",
+    data: data,
+  };
+};
 export const pageIncrement = () => {
   return {
     type: "INCREMENT",
@@ -35,5 +40,36 @@ export const addMovieCredit = (data) => {
   return {
     type: "ADD_MOVIE_CREDIT",
     data: data,
+  };
+};
+
+export const showNext = () => {
+  return {
+    type: "SHOW",
+  };
+};
+
+export const notShowNext = () => {
+  return {
+    type: "NOT_SHOW",
+  };
+};
+
+export const searchPageInitial = (data) => {
+  return {
+    type: "SEARCH_SET",
+    data: data,
+  };
+};
+
+export const searchPageIncrement = (data) => {
+  return {
+    type: "SEARCH_INCREMENT",
+  };
+};
+
+export const searchPageDecrement = () => {
+  return {
+    type: "SEARCH_DECREMENT",
   };
 };

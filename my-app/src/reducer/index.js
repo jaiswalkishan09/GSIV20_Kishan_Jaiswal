@@ -3,6 +3,8 @@ import pageReducer from "../reducer/pageReducer";
 import idReducer from "./idReducer";
 import movieDetailReducer from "./movieDetailReducer";
 import movieCreditReducer from "./movieCreditReducer";
+import showReducer from "./showReducer";
+import searchPageReducer from "./searchPageReducer";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
@@ -11,5 +13,7 @@ const rootReducer = combineReducers({
   idReducer,
   movieDetailReducer,
   movieCreditReducer,
+  showReducer,
+  searchPageReducer,
 });
 export default rootReducer;
