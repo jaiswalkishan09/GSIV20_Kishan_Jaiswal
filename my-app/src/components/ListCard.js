@@ -17,7 +17,6 @@ export default function ListCard() {
                 <img
                   className="card-img-top"
                   src={"http://image.tmdb.org/t/p/w300" + data.poster_path}
-                  alt="Card image cap"
                   style={{ height: "220px", width: "220px" }}
                 />
                 <div className="card-body" style={{ width: "220px" }}>

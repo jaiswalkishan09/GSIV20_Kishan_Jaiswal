@@ -15,12 +15,19 @@ export default function NextPage() {
         style={{ marginBottom: "100px", marginTop: "50px" }}
       >
         <div>
-          <button
-            onClick={() => dispatch(pageDecrement())}
-            style={{ padding: "15px", borderRadius: "10px" }}
-          >
-            <i className="bi bi-caret-left"></i>Prev
-          </button>
+          {pageNo != 1 ? (
+            <button
+              onClick={() => {
+                dispatch(pageDecrement());
+                handleClick();
+              }}
+              style={{ padding: "15px", borderRadius: "10px" }}
+            >
+              <i className="bi bi-caret-left"></i>Prev
+            </button>
+          ) : (
+            ""
+          )}
         </div>
         <div
           className="text-center"
@@ -33,15 +40,19 @@ export default function NextPage() {
           {pageNo}
         </div>
         <div>
-          <button
-            onClick={() => {
-              dispatch(pageIncrement());
-              handleClick();
-            }}
-            style={{ padding: "15px", borderRadius: "10px" }}
-          >
-            Next<i className="bi bi-caret-right"></i>
-          </button>
+          {pageNo != 19 ? (
+            <button
+              onClick={() => {
+                dispatch(pageIncrement());
+                handleClick();
+              }}
+              style={{ padding: "15px", borderRadius: "10px" }}
+            >
+              Next<i className="bi bi-caret-right"></i>
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
