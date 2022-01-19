@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import ListCard from "./ListCard";
 import NextPage from "./NextPage";
@@ -14,12 +14,9 @@ function ListPage() {
     try {
       if (pageNo != 0) {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/upcoming?api_key=dd5cf88c89fb73ed6e1fc0a5fa6a1de7&language=en-US&page=${pageNo}`,
+          `${process.env.REACT_APP_CONFIG_API_UPCOMING_MOVIE}?api_key=${process.env.REACT_APP_DOMAIN_API_KEY}&page=${pageNo}`,
           {
             method: "GET",
-            params: {
-              api_key: "dd5cf88c89fb73ed6e1fc0a5fa6a1de7",
-            },
           }
         );
 

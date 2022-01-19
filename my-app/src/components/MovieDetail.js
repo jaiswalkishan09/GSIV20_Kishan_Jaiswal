@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { addDetailMovie, addMovieCredit } from "../action/index";
 import DetailNavBar from "./DetailNavBar";
 
@@ -9,19 +9,14 @@ export default function MovieDetail() {
   const movieData = useSelector((state) => state.movieDetailReducer);
   const creditData = useSelector((state) => state.movieCreditReducer);
   const dispatch = useDispatch();
-  const [comma, setComma] = useState(0);
   useEffect(async () => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId.id}?api_key=dd5cf88c89fb73ed6e1fc0a5fa6a1de7`,
+        `${process.env.REACT_APP_CONFIG_API_MOVIE_DETAIL}${movieId.id}?api_key=${process.env.REACT_APP_DOMAIN_API_KEY}`,
         {
           method: "GET",
-          params: {
-            api_key: "dd5cf88c89fb73ed6e1fc0a5fa6a1de7",
-          },
         }
       );
-
       let json_res = await response.json();
       if (json_res) {
         dispatch(addDetailMovie(json_res));
@@ -34,15 +29,11 @@ export default function MovieDetail() {
   useEffect(async () => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId.id}/credits?api_key=dd5cf88c89fb73ed6e1fc0a5fa6a1de7&language=en-US`,
+        `${process.env.REACT_APP_CONFIG_API_MOVIE_DETAIL}${movieId.id}/credits?api_key=${process.env.REACT_APP_DOMAIN_API_KEY}&language=en-US`,
         {
           method: "GET",
-          params: {
-            api_key: "dd5cf88c89fb73ed6e1fc0a5fa6a1de7",
-          },
         }
       );
-
       let json_res = await response.json();
       if (json_res) {
         dispatch(addMovieCredit(json_res));
@@ -63,7 +54,8 @@ export default function MovieDetail() {
               <img
                 className="img-fluid"
                 src={
-                  "http://image.tmdb.org/t/p/w300" + movieData.data.poster_path
+                  `${process.env.REACT_APP_IMAGE_DOMAIN}` +
+                  movieData.data.poster_path
                 }
               ></img>
             </div>
@@ -120,7 +112,7 @@ export default function MovieDetail() {
             </div>
           </div>
         ) : (
-          "please wait"
+          "Please Wait or Try Again Network Problem Click on the Home Button"
         )}
       </div>
     </>

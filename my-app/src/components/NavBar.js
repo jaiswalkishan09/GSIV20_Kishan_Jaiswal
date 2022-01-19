@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import home from "../images/home.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { addList, searchPageIncrement, searchPageInitial } from "../action";
+import { addList, searchPageInitial } from "../action";
 import { notShowNext, pageInitial, showNext, setInput } from "../action";
 export default function NavBar() {
   const input = useSelector((state) => state.inputReducer);
@@ -16,12 +16,9 @@ export default function NavBar() {
       }
       if (input != "" && searchPageNo != 0) {
         const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=dd5cf88c89fb73ed6e1fc0a5fa6a1de7&query=${input}%202&page=${searchPageNo}`,
+          `${process.env.REACT_APP_CONFIG_API_SEARCH_MOVIE}?api_key=${process.env.REACT_APP_DOMAIN_API_KEY}&query=${input}%202&page=${searchPageNo}`,
           {
             method: "GET",
-            params: {
-              api_key: "dd5cf88c89fb73ed6e1fc0a5fa6a1de7",
-            },
           }
         );
 
