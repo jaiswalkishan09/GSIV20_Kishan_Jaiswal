@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { addDetailMovie, addMovieCredit } from "../action/index";
+import DetailNavBar from "./DetailNavBar";
 
 export default function MovieDetail() {
   const movieId = useSelector((state) => state.idReducer);
@@ -52,6 +53,8 @@ export default function MovieDetail() {
 
   return (
     <>
+      <DetailNavBar />
+      <hr style={{ borderBottom: "3px solid", borderColor: "#9F9F9F" }} />
       <div className="container">
         {movieData.data ? (
           <div className="row">
