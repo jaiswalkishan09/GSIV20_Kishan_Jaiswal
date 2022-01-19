@@ -78,12 +78,9 @@ export default function NavBar() {
               />
             </div>
           </div>
-          <div
-            className="col-6"
-            style={{ textAlign: "right" }}
-            onClick={() => window.location.reload(false)}
-          >
+          <div className="col-6" style={{ textAlign: "right" }}>
             <img
+              onClick={() => window.location.reload(false)}
               src={home}
               style={{ height: "16px", width: "16px", cursor: "pointer" }}
             ></img>
