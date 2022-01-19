@@ -21,7 +21,6 @@ function ListPage() {
 
       let json_res = await response.json();
       if (json_res) {
-        console.log(pageNo);
         dispatch(addList(json_res));
       }
     } catch (err) {

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { movieId } from "../action/index";
+import { useNavigate } from "react-router-dom";
 
 export default function ListCard() {
   const mystate = useSelector((state) => state.addReducer);
-  function changeBackground(e) {}
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleClick = () => navigate("/movieDetail");
   return (
     <>
       <div className="d-flex justify-content-center  flex-wrap">
@@ -13,6 +17,10 @@ export default function ListCard() {
                 key={index}
                 className="Card shadow-lg  mb-5 bg-white rounded p-1 "
                 style={{ cursor: "pointer" }}
+                onClick={() => {
+                  dispatch(movieId(data.id));
+                  handleClick();
+                }}
               >
                 <img
                   className="card-img-top"
