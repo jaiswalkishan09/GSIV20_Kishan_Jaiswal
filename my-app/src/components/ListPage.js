@@ -10,7 +10,6 @@ function ListPage() {
   const pageNo = useSelector((state) => state.pageReducer);
   const show = useSelector((state) => state.showReducer);
   const dispatch = useDispatch();
-  console.log(pageNo);
   useEffect(async () => {
     try {
       if (pageNo != 0) {

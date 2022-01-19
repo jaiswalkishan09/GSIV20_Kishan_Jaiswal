@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addDetailMovie, addMovieCredit } from "../action/index";
 import DetailNavBar from "./DetailNavBar";
 
@@ -8,8 +8,8 @@ export default function MovieDetail() {
   const movieId = useSelector((state) => state.idReducer);
   const movieData = useSelector((state) => state.movieDetailReducer);
   const creditData = useSelector((state) => state.movieCreditReducer);
-  const show = useSelector((state) => state.showReducer);
   const dispatch = useDispatch();
+  const [comma, setComma] = useState(0);
   useEffect(async () => {
     try {
       const response = await fetch(
@@ -86,7 +86,9 @@ export default function MovieDetail() {
                 {creditData.data
                   ? creditData.data.crew.map((data, index) =>
                       data.job == "Director" ? (
-                        <p className="p-2">{data.name}</p>
+                        <p className="p-2" key={index}>
+                          {data.name}
+                        </p>
                       ) : (
                         ""
                       )
@@ -95,15 +97,26 @@ export default function MovieDetail() {
               </div>
 
               <div className="d-flex flex-wrap">
-                <p className="p-1">Cast:</p>
+                <p className="p-1" style={{ marginBottom: "0px" }}>
+                  Cast:
+                </p>
                 {creditData.data
                   ? creditData.data.cast.map((data, index) => (
-                      <p className="p-1">{data.name}</p>
+                      <p
+                        className="p-1"
+                        style={{ marginBottom: "0px" }}
+                        key={index}
+                      >
+                        {index != 0 ? <span>,</span> : ""}
+                        {data.name}
+                      </p>
                     ))
                   : "..."}
               </div>
 
-              <p>Description:{movieData.data.overview}</p>
+              <p style={{ marginTop: "15px" }}>
+                Description:{movieData.data.overview}
+              </p>
             </div>
           </div>
         ) : (

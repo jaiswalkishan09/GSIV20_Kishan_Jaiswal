@@ -5,8 +5,6 @@ import { addList, searchPageIncrement, searchPageInitial } from "../action";
 import { notShowNext, pageInitial, showNext, setInput } from "../action";
 export default function NavBar() {
   const input = useSelector((state) => state.inputReducer);
-
-  console.log("d", input);
   const dispatch = useDispatch();
   const searchPageNo = useSelector((state) => state.searchPageReducer);
 
