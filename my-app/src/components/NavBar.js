@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import home from "../images/home.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { addList, searchPageInitial } from "../action";
-import { notShowNext, pageInitial, showNext, setInput } from "../action";
+import { notShowNext, pageInitial, setInput } from "../action";
 export default function NavBar() {
   const input = useSelector((state) => state.inputReducer);
   const dispatch = useDispatch();
