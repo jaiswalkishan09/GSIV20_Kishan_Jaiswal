@@ -1,6 +1,41 @@
-# GSIV20_Kishan_Jaiswal
+# upcoming_movie_search_using_themoviedb
 
-#Instructions about how to run and test your code.
+Project consist of:
+
+-two-page web app for browsing and searching movies with the help of
+available online API: https://developers.themoviedb.org/3/getting-
+started/introduction.
+
+-first pages is List page which display upcoming movies, in movie cards.Each movie card display:
+
+a. Movie media (picture)
+b. Movie Title
+c. Rating (average vote)
+d. Description
+
+-search bar is used for searching movies using the search API. Search results will be
+displayed on the List page itself. When search is cancelled, it will revert to
+showing all movies again.
+
+-onclick on a movie card, the app will navigate to the Details page
+showing movie details. The home button on the Details
+page will navigate the user back to the List page. Details page will
+display
+a. Movie Title
+b. Rating (average vote)
+c. Year of release
+d. Length 
+e. Director
+f. Cast (Comma separated list of actors)
+g. Description
+
+-the whole project is responsive
+
+Tech Used:
+
+-React Redux,HTML,CSS,Bootstrap
+
+#Instructions about how to run.
 -Clone from github
 -open and install the packages(npm install)
 -npm start
@@ -12,17 +47,4 @@
 -in listpage onclick of hompage it will refresh the whole page while in movie detail page it act as a backbutton
 -if the search result have many pages than it can navigate using the next button as available in the homepage
 
-#List elements from the challenge that you think you have done well, and
-that exemplify your proficiency. Please describe why you chose those
-elements, and how they demonstrate your proficiency.
-=>
-UI Design:Responsive and Design implemented according to attached UI specs using React Components
--Routing implemented and connected to the api and working search functionality
--state management is done using Redux
--handling of async operations using async and await
--reusablity of component
 
-#List what you would do to improve your solution if you had 4 more hours
-available for this task. Describe why you would do those things.
--Error handling
--add automated test case
